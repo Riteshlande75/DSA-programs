@@ -2,9 +2,15 @@
 using namespace std;
 
 int main() {
-    int n = 4;
-    int bt[] = {5, 3, 8, 6}; // burst time
-    int wt[10], tat[10];
+    int n;
+    cout << "Enter number of processes: ";
+    cin >> n;
+
+    int bt[n], wt[n], tat[n];
+
+    cout << "Enter burst times:\n";
+    for(int i = 0; i < n; i++)
+        cin >> bt[i];
 
     wt[0] = 0;
 
@@ -14,7 +20,7 @@ int main() {
     for(int i = 0; i < n; i++)
         tat[i] = wt[i] + bt[i];
 
-    cout << "Process\tWT\tTAT\n";
+    cout << "\nProcess\tBT\tWT\tTAT\n";
     for(int i = 0; i < n; i++)
-        cout << i+1 << "\t" << wt[i] << "\t" << tat[i] << endl;
+        cout << i+1 << "\t" << bt[i] << "\t" << wt[i] << "\t" << tat[i] << endl;
 }
