@@ -12,15 +12,22 @@ int main() {
     for(int i = 0; i < n; i++)
         cin >> bt[i];
 
-    wt[0] = 0;
+    // Sort burst time
+    for(int i = 0; i < n-1; i++) {
+        for(int j = 0; j < n-i-1; j++) {
+            if(bt[j] > bt[j+1])
+                swap(bt[j], bt[j+1]);
+        }
+    }
 
+    wt[0] = 0;
     for(int i = 1; i < n; i++)
         wt[i] = wt[i-1] + bt[i-1];
 
     for(int i = 0; i < n; i++)
         tat[i] = wt[i] + bt[i];
-
-    cout << "\nProcess\tBT\tWT\tTAT\n";
+ 
+    cout << "\nBT\tWT\tTAT\n";
     for(int i = 0; i < n; i++)
-        cout << i+1 << "\t" << bt[i] << "\t" << wt[i] << "\t" << tat[i] << endl;
+        cout << bt[i] << "\t" << wt[i] << "\t" << tat[i] << endl;
 }
