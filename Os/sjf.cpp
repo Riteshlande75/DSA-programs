@@ -26,7 +26,7 @@ int main() {
 
     for(int i = 0; i < n; i++)
         tat[i] = wt[i] + bt[i];
-
+ 
     cout << "\nBT\tWT\tTAT\n";
     for(int i = 0; i < n; i++)
         cout << bt[i] << "\t" << wt[i] << "\t" << tat[i] << endl;
